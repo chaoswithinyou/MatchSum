@@ -2,7 +2,7 @@ import torch
 from torch import nn
 from torch.nn import init
 
-from transformers import BertModel, RobertaModel
+from transformers import BertModel, RobertaModel, AutoModel
 
 class MatchSum(nn.Module):
     
@@ -14,6 +14,8 @@ class MatchSum(nn.Module):
         
         if encoder == 'bert':
             self.encoder = BertModel.from_pretrained('bert-base-uncased')
+        elif encoder == 'phobert':
+            self.encoder = AutoModel.from_pretrained("vinai/phobert-base")
         else:
             self.encoder = RobertaModel.from_pretrained('roberta-base')
 

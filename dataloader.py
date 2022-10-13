@@ -21,6 +21,8 @@ class MatchSumLoader(JsonLoader):
 
         if encoder == 'bert':
             self.sep_id = [102] # '[SEP]' (BERT)
+        elif encoder == 'phobert':
+            self.sep_id = [2]
         else:
             self.sep_id = [2] # '</s>' (RoBERTa)
 
